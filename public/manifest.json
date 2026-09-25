@@ -1,0 +1,20 @@
+{
+  "manifest_version": 3,
+  "name": "YouTube Subscription Manager",
+  "version": "0.1.0",
+  "description": "A learning project for managing YouTube subscriptions.",
+  "side_panel": {
+    "default_path": "sidepanel.html"
+  },
+  "background": {
+    "service_worker": "assets/background.js",
+    "type": "module"
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://www.youtube.com/*"],
+      "js": ["assets/youtubeTracker.js"]
+    }
+  ],
+  "permissions": ["sidePanel"]
+}
