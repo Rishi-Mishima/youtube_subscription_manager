@@ -1,6 +1,9 @@
-// Placeholder for future local storage or IndexedDB code.
-//
-// Keep this file simple until you know what data you want to persist.
-// Dexie or another IndexedDB helper can be added later if you decide it helps.
+import type { Channel } from "../types/channel";
 
-export {};
+const CHANNELS_KEY = "channels";
+
+export async function getChannels(): Promise<Channel[]> {
+    const result = await chrome.storage.local.get(CHANNELS_KEY);
+
+    return (result[CHANNELS_KEY] as Channel[]) ?? [];
+}
